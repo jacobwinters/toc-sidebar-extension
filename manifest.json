@@ -1,0 +1,19 @@
+{
+	"manifest_version": 2,
+	"name": "TOC sidebar",
+	"version": "1.0",
+	"sidebar_action": {
+		"default_title": "Table of Contents",
+		"default_panel": "sidebar.xhtml"
+	},
+	"content_scripts": [
+		{
+			"matches": [
+				"http://*/*",
+				"https://*/*",
+				"file://*/*"
+			],
+			"js": [ "content-script.js" ]
+		}
+	]
+}

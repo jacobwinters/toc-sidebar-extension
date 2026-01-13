@@ -1,0 +1,18 @@
+a {
+	text-decoration: none;
+	color: inherit;
+	border-left: 2px solid transparent;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	padding-block: 4px;
+
+	&.active {
+		border-left-color: #0a84ff;
+		background: rgb(10 132 255 / .15);
+	}
+
+	&:hover {
+		background: hsl(0 0% 50% / .15);
+	}
+}
