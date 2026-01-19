@@ -1,4 +1,5 @@
-browser.runtime.onConnect.addListener((port) => {
+(function() {
+	let port = browser.runtime.connect();
 	let headings;
 
 	function sendOutline() {
@@ -7,11 +8,10 @@ browser.runtime.onConnect.addListener((port) => {
 		for (let heading of headings) {
 			outline.push({ level: +heading.tagName.substring(1), text: heading.textContent, id: heading.id });
 		}
-		port.postMessage({ type: "outline", url: location.href, outline: outline });
-		updateActiveHeading();
+		sendUpdate({ url: location.href, outline: outline });
 	}
 
-	function updateActiveHeading() {
+	function sendUpdate(message) {
 		let activeHeadings = [];
 		let thisTop;
 		let nextTop = headings[0]?.getBoundingClientRect().top;
@@ -26,7 +26,11 @@ browser.runtime.onConnect.addListener((port) => {
 				activeHeadings.push(i);
 			}
 		}
-		port.postMessage({ type: "scroll", activeHeadings: activeHeadings });
+		port.postMessage({ ...message, activeHeadings: activeHeadings });
+	}
+
+	function updateActiveHeading() {
+		sendUpdate({});
 	}
 
 	let observer = new MutationObserver(sendOutline);
@@ -47,4 +51,6 @@ browser.runtime.onConnect.addListener((port) => {
 		removeEventListener("scroll", updateActiveHeading);
 		removeEventListener("resize", updateActiveHeading);
 	});
-});
+
+	return true;
+}());

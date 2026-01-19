@@ -6,14 +6,8 @@
 		"default_title": "Table of Contents",
 		"default_panel": "sidebar.xhtml"
 	},
-	"content_scripts": [
-		{
-			"matches": [
-				"http://*/*",
-				"https://*/*",
-				"file://*/*"
-			],
-			"js": [ "content-script.js" ]
-		}
+	"permissions": [
+		"<all_urls>",
+		"webNavigation"
 	]
 }
