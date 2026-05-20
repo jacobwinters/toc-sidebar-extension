@@ -3,7 +3,7 @@
 	let headings;
 
 	function sendOutline() {
-		headings = document.querySelectorAll(":is(h1, h2, h3, h4, h5, h6):not(nav *)");
+		headings = [...document.querySelectorAll(":is(h1, h2, h3, h4, h5, h6):not(nav *)")].filter(heading => heading.checkVisibility());
 		let outline = [];
 		for (let heading of headings) {
 			outline.push({ level: +heading.tagName.substring(1), text: heading.textContent, id: heading.id });
