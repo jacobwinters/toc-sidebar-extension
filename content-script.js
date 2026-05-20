@@ -35,7 +35,7 @@
 
 	let observer = new MutationObserver(sendOutline);
 	observer.observe(document, { childList: true, subtree: true });
-	addEventListener("scroll", updateActiveHeading, { passive: true });
+	addEventListener("scroll", updateActiveHeading, { passive: true, capture: true });
 	addEventListener("resize", updateActiveHeading);
 
 	sendOutline();
