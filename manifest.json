@@ -2,9 +2,13 @@
 	"manifest_version": 2,
 	"name": "TOC sidebar",
 	"version": "1.0",
+	"icons": {
+		"32": "icon.svg"
+	},
 	"sidebar_action": {
 		"default_title": "Table of Contents",
-		"default_panel": "sidebar.xhtml"
+		"default_panel": "sidebar.xhtml",
+		"default_icon": "icon.svg"
 	},
 	"permissions": [
 		"<all_urls>",
