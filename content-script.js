@@ -8,7 +8,18 @@
 		for (let heading of headings) {
 			outline.push({ level: +heading.tagName.substring(1), text: heading.textContent, id: heading.id });
 		}
-		sendUpdate({ url: location.href, outline: outline });
+
+		let backgroundColor = getComputedStyle(document.documentElement).backgroundColor;
+		if (backgroundColor === "rgba(0, 0, 0, 0)") {
+			backgroundColor = getComputedStyle(document.body).backgroundColor;
+		}
+
+		sendUpdate({
+			url: location.href,
+			outline: outline,
+			color: getComputedStyle(document.body).color,
+			backgroundColor: backgroundColor,
+		});
 	}
 
 	function sendUpdate(message) {
