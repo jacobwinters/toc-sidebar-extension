@@ -5,6 +5,14 @@
 	"icons": {
 		"32": "icon.svg"
 	},
+	"browser_specific_settings": {
+		"gecko": {
+			"id": "toc-sidebar@jacobwinters.com",
+			"data_collection_permissions": {
+				"required": ["none"]
+			}
+		}
+	},
 	"sidebar_action": {
 		"default_title": "Table of Contents",
 		"default_panel": "sidebar.xhtml",
