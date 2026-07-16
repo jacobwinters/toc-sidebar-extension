@@ -1,20 +1,20 @@
 {
 	"manifest_version": 2,
-	"name": "TOC sidebar",
+	"name": "Outline Panel",
 	"version": "1.0",
 	"icons": {
 		"32": "icon.svg"
 	},
 	"browser_specific_settings": {
 		"gecko": {
-			"id": "toc-sidebar@jacobwinters.com",
+			"id": "outline-panel@jacobwinters.com",
 			"data_collection_permissions": {
 				"required": ["none"]
 			}
 		}
 	},
 	"sidebar_action": {
-		"default_title": "Table of Contents",
+		"default_title": "Outline",
 		"default_panel": "sidebar.xhtml",
 		"default_icon": "icon.svg"
 	},
